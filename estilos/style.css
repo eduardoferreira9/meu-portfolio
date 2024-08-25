@@ -11,7 +11,7 @@
 }
 
 body {
-    background-color: #3b234a;
+    background-color: black !important;
 }
 
 .h1-custom {
@@ -26,33 +26,6 @@ body {
 
 .card-color {
     background-color: #523961;
-}
-
-/*animacao*/
-[data-anima] {
-    opacity: 0;
-    transition: 1s;
-}
-
-[data-anima="down"] {
-    transform: translate3d(0, -50px, 0);
-}
-
-[data-anima="up"] {
-    transform: translate3d(0, 50px, 0);
-}
-
-[data-anima="left"] {
-    transform: translate3d(-30px, 0, 0);
-}
-
-[data-anima="right"] {
-    transform: translate3d(30px, 0, 0);
-}
-
-[data-anima].animate {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
 }
 
 .habilidades-content {
@@ -127,4 +100,3 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
     border-radius: 15px !important;
   }
-
