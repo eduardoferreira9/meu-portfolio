@@ -144,22 +144,29 @@
                       </div>
             </section>
         </main>
-        <footer class="d-flex inputs justify-content-center p-5" style="background-color: black;">
-            <div class="flex-column" style="width: 50%;">
-                <p class="h2 text-center text-white fw-semibold" data-anima="left">Contato</p>
-                <p class="card-text text-white text-center p-4" data-anima="right">Espero que possa te ajudar em algum projeto! Caso queira, pode entrar em contato comigo digitando seu Email, Nome e o que deseja!</p>
-                <div class="form-floating mb-3" data-anima="up">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email:</label>
-                </div>
-                <div class="form-floating mb-3" data-anima="up">
-                    <input type="text" class="form-control" placeholder="Nome" id="floatingTextarea">
-                    <label for="floatingTextarea">Nome:</label>
-                </div>
-                <div class="form-floating mb-3" data-anima="up">
-                    <textarea class="form-control" placeholder="Deixe um comentário aqui" id="floatingTextarea2" style="height: 80px"></textarea>
-                    <label for="floatingTextarea2">Demanda:</label>
-                </div>
+        <footer class="container-fluid d-flex flex-column justify-content-center p-5">
+            <div class="container">
+                <p class="h2 text-center fw-semibold text-white" data-anima="left">Contato</p>
+                <p class="card-text text-center p-4 text-white" data-anima="right">
+                    Espero que possa te ajudar em algum projeto! Caso queira, pode entrar em contato comigo digitando seu Email, Nome e o que deseja!
+                </p>
+                <form>
+                    <div class="form-floating mb-3" data-anima="up">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email:</label>
+                    </div>
+                    <div class="form-floating mb-3" data-anima="up">
+                        <input type="text" class="form-control" placeholder="Nome" id="floatingTextarea">
+                        <label for="floatingTextarea">Nome:</label>
+                    </div>
+                    <div class="form-floating mb-3" data-anima="up">
+                        <textarea class="form-control" placeholder="Deixe um comentário aqui" id="floatingTextarea2" style="height: 80px;"></textarea>
+                        <label for="floatingTextarea2">Demanda:</label>
+                    </div>
+                    <div class="d-flex justify-content-center" data-anima="up">
+                        <button type="submit" class="btn btn-outline-light fw-medium fs-5">Enviar</button>
+                    </div>
+                </form>
             </div>
         </footer>
 </body>

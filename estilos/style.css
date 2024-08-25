@@ -94,6 +94,14 @@ body {
     border-radius: 15px !important; /* Bordas arredondadas */
 }
 
+.form-control {
+    background-color: transparent; /* Removes the background color */
+    border-color: white; /* Sets the border color to white */
+}
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Light placeholder text color */
+}
+
 /* Regras de animação para elementos com atributo data-anima */
 [data-anima] {
     opacity: 0; /* Inicialmente invisível */
