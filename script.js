@@ -1,59 +1,65 @@
-document.addEventListener("DOMContentLoaded", main)
+document.addEventListener("DOMContentLoaded", main);
 
 function main() {
-    /* animações */
-    var item = document.querySelectorAll("[data-anima]")
+    /* Animações */
+    var items = document.querySelectorAll("[data-anima]"); // Seleciona todos os elementos com atributo data-anima
     
     function animeScroll() {
-        let windowTop = window.pageYOffset + window.innerHeight * 0.9
+        let windowTop = window.pageYOffset + window.innerHeight * 0.9; // Calcula a posição da tela com um offset
     
-        item.forEach((element) => {
-            if(windowTop > element.offsetTop) {
-                element.classList.add("animate")
+        items.forEach((element) => {
+            // Adiciona a classe 'animate' se o elemento estiver visível na tela
+            if (windowTop > element.offsetTop) {
+                element.classList.add("animate");
             } else {
-                element.classList.remove("animate")
+                element.classList.remove("animate");
             }
-        })
+        });
     }
     
-    animeScroll()
+    animeScroll(); // Executa a animação ao carregar a página
     
     window.addEventListener("scroll", function() {
-        animeScroll()
-    })
+        animeScroll(); // Atualiza a animação ao rolar a página
+    });
     
-    /* menu */
-    var menuBar = document.querySelector('#burguer')
+    /* Menu */
+    var menuBar = document.querySelector('#burguer'); // Seleciona o ícone do menu
     
     menuBar.addEventListener('click', function() {
-        let menuMobile = document.querySelector('.cabecalho-menu')
+        let menuMobile = document.querySelector('.cabecalho-menu'); // Seleciona o menu mobile
     
         if (menuMobile.classList.contains('mostrar-menu')) {
-            menuMobile.classList.remove('mostrar-menu')
-            menuBar.innerHTML = 'menu'
+            // Se o menu já estiver visível, oculta-o
+            menuMobile.classList.remove('mostrar-menu');
+            menuBar.innerHTML = 'menu'; // Altera o ícone do menu para 'menu'
         } else {
-            menuMobile.classList.add('mostrar-menu')
-            menuBar.innerHTML = 'close'
+            // Se o menu não estiver visível, exibe-o
+            menuMobile.classList.add('mostrar-menu');
+            menuBar.innerHTML = 'close'; // Altera o ícone do menu para 'close'
         }
     
         menuMobile.addEventListener('click', function() {
-            menuMobile.classList.remove('mostrar-menu')
-            menuBar.innerHTML = 'menu'
-        })
-    })
+            // Adiciona um evento ao menu para fechá-lo ao clicar
+            menuMobile.classList.remove('mostrar-menu');
+            menuBar.innerHTML = 'menu'; // Altera o ícone do menu para 'menu'
+        });
+    });
 
-    /* mostrar mais sobre projetos */
-    const projetos = document.getElementsByClassName('projetos-caixa-m')
+    /* Mostrar mais sobre projetos */
+    const projetos = document.getElementsByClassName('projetos-caixa-m'); // Seleciona os projetos
+    
     for (const projeto of projetos) {
         projeto.addEventListener("click", (event) => {
-            const dados = event.target.parentElement
-            const nome = dados.getElementsByClassName('dado-nome')[0].innerText
-            const img = dados.getElementsByClassName('dado-img')[0].innerText
-            const desc = dados.getElementsByClassName('dado-desc')[0].innerText
-            const codigo = dados.getElementsByClassName('dado-codigo')[0].innerText
-            const projeto = dados.getElementsByClassName('dado-projeto')[0].innerText
-            console.log(codigo, projeto)
-            let div = document.createElement('div')
+            const dados = event.target.parentElement; // Obtém o elemento pai do projeto clicado
+            const nome = dados.getElementsByClassName('dado-nome')[0].innerText; // Nome do projeto
+            const img = dados.getElementsByClassName('dado-img')[0].innerText; // Imagem do projeto
+            const desc = dados.getElementsByClassName('dado-desc')[0].innerText; // Descrição do projeto
+            const codigo = dados.getElementsByClassName('dado-codigo')[0].innerText; // URL do código
+            const projetoUrl = dados.getElementsByClassName('dado-projeto')[0].innerText; // URL do projeto
+            console.log(codigo, projetoUrl); // Exibe os URLs no console
+            
+            let div = document.createElement('div'); // Cria uma nova div para os detalhes do projeto
             div.innerHTML = `
             <div class="detalhes-content">
                 <h2 class="detalhes-titulo">${nome}</h2>
@@ -66,62 +72,67 @@ function main() {
                         <p class="detalhes-desc detalhes-txt">${desc}</p>
                         <div class="detalhes-btns">
                             <a class="detalhes-txt" href="${codigo}" target="_blank" rel="noopener noreferrer">Ver códigos</a>
-                            <a class="detalhes-txt" href="${projeto}" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+                            <a class="detalhes-txt" href="${projetoUrl}" target="_blank" rel="noopener noreferrer">Ver projeto</a>
                         </div>
                     </div>
                 </div>
             </div>
-            `
-            div.classList.add('detalhes')
-            document.getElementsByTagName('main')[0].appendChild(div)
-            const cardImg = div.querySelector('.img > img')
+            `;
+            div.classList.add('detalhes'); // Adiciona a classe 'detalhes' à nova div
+            document.getElementsByTagName('main')[0].appendChild(div); // Adiciona a div ao elemento <main>
+            
+            const cardImg = div.querySelector('.img > img'); // Seleciona a imagem dentro da div
             cardImg.onload = () => {
-                div.getElementsByClassName('card')[0].classList.remove('carregando')
-                div.getElementsByClassName('card')[1].classList.remove('carregando')
+                // Remove a classe 'carregando' quando a imagem estiver carregada
+                div.getElementsByClassName('card')[0].classList.remove('carregando');
+                div.getElementsByClassName('card')[1].classList.remove('carregando');
             }
-            document.body.style.overflowY = 'hidden'
-            const fexar = document.getElementById('fexar')
+            
+            document.body.style.overflowY = 'hidden'; // Remove a rolagem vertical da página
+            
+            const fexar = document.getElementById('fexar'); // Seleciona o botão de fechar
             fexar.addEventListener("click", () => {
-                div.remove()
-                document.body.style.overflowY = 'scroll'
-            })
-        })
+                div.remove(); // Remove a div de detalhes ao clicar em fechar
+                document.body.style.overflowY = 'scroll'; // Restaura a rolagem vertical da página
+            });
+        });
     }
 }
 
+// Função para animação de digitação
 var i = 0;
-        var txt1 = 'Eduardo';
-        var txt2 = 'Web Developer.';
-        var speed = 150; // Velocidade de digitação
-        var deleteSpeed = 100; // Velocidade de apagamento
-        var currentText = txt1;
-        var isDeleting = false;
+var txt1 = 'Eduardo';
+var txt2 = 'Web Developer.';
+var speed = 150; // Velocidade de digitação
+var deleteSpeed = 100; // Velocidade de apagamento
+var currentText = txt1;
+var isDeleting = false;
 
-        function typeWriter() {
-            if (!isDeleting) {
-                // Adicionar caracteres
-                if (i < currentText.length) {
-                    document.getElementById("digitando").innerHTML += currentText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, speed);
-                } else {
-                    // Quando a digitação termina, começa a apagar
-                    isDeleting = true;
-                    setTimeout(typeWriter, 1000); // Pausa antes de começar a apagar
-                }
-            } else {
-                // Apagar caracteres
-                if (i > 0) {
-                    var text = currentText.substring(0, i - 1);
-                    document.getElementById("digitando").innerHTML = text;
-                    i--;
-                    setTimeout(typeWriter, deleteSpeed);
-                } else {
-                    // Quando a exclusão termina, alterna o texto e começa a digitar novamente
-                    isDeleting = false;
-                    i = 0;
-                    currentText = (currentText === txt1) ? txt2 : txt1;
-                    setTimeout(typeWriter, 500); // Pausa antes de começar a digitar novamente
-                }
-            }
+function typeWriter() {
+    if (!isDeleting) {
+        // Adiciona caracteres
+        if (i < currentText.length) {
+            document.getElementById("digitando").innerHTML += currentText.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        } else {
+            // Quando a digitação termina, começa a apagar
+            isDeleting = true;
+            setTimeout(typeWriter, 1000); // Pausa antes de começar a apagar
         }
+    } else {
+        // Apaga caracteres
+        if (i > 0) {
+            var text = currentText.substring(0, i - 1);
+            document.getElementById("digitando").innerHTML = text;
+            i--;
+            setTimeout(typeWriter, deleteSpeed);
+        } else {
+            // Quando a exclusão termina, alterna o texto e começa a digitar novamente
+            isDeleting = false;
+            i = 0;
+            currentText = (currentText === txt1) ? txt2 : txt1;
+            setTimeout(typeWriter, 500); // Pausa antes de começar a digitar novamente
+        }
+    }
+}
