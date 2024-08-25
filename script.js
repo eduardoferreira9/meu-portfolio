@@ -22,29 +22,6 @@ function main() {
     window.addEventListener("scroll", function() {
         animeScroll(); // Atualiza a animação ao rolar a página
     });
-    
-    /* Menu */
-    var menuBar = document.querySelector('#burguer'); // Seleciona o ícone do menu
-    
-    menuBar.addEventListener('click', function() {
-        let menuMobile = document.querySelector('.cabecalho-menu'); // Seleciona o menu mobile
-    
-        if (menuMobile.classList.contains('mostrar-menu')) {
-            // Se o menu já estiver visível, oculta-o
-            menuMobile.classList.remove('mostrar-menu');
-            menuBar.innerHTML = 'menu'; // Altera o ícone do menu para 'menu'
-        } else {
-            // Se o menu não estiver visível, exibe-o
-            menuMobile.classList.add('mostrar-menu');
-            menuBar.innerHTML = 'close'; // Altera o ícone do menu para 'close'
-        }
-    
-        menuMobile.addEventListener('click', function() {
-            // Adiciona um evento ao menu para fechá-lo ao clicar
-            menuMobile.classList.remove('mostrar-menu');
-            menuBar.innerHTML = 'menu'; // Altera o ícone do menu para 'menu'
-        });
-    });
 
     /* Mostrar mais sobre projetos */
     const projetos = document.getElementsByClassName('projetos-caixa-m'); // Seleciona os projetos
@@ -99,40 +76,4 @@ function main() {
     }
 }
 
-// Função para animação de digitação
-var i = 0;
-var txt1 = 'Eduardo';
-var txt2 = 'Web Developer.';
-var speed = 150; // Velocidade de digitação
-var deleteSpeed = 100; // Velocidade de apagamento
-var currentText = txt1;
-var isDeleting = false;
 
-function typeWriter() {
-    if (!isDeleting) {
-        // Adiciona caracteres
-        if (i < currentText.length) {
-            document.getElementById("digitando").innerHTML += currentText.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        } else {
-            // Quando a digitação termina, começa a apagar
-            isDeleting = true;
-            setTimeout(typeWriter, 1000); // Pausa antes de começar a apagar
-        }
-    } else {
-        // Apaga caracteres
-        if (i > 0) {
-            var text = currentText.substring(0, i - 1);
-            document.getElementById("digitando").innerHTML = text;
-            i--;
-            setTimeout(typeWriter, deleteSpeed);
-        } else {
-            // Quando a exclusão termina, alterna o texto e começa a digitar novamente
-            isDeleting = false;
-            i = 0;
-            currentText = (currentText === txt1) ? txt2 : txt1;
-            setTimeout(typeWriter, 500); // Pausa antes de começar a digitar novamente
-        }
-    }
-}
