@@ -1,256 +1,134 @@
+/* Importação de fontes do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Regras gerais para todos os elementos */
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
-    font-family: "Poppins", sans-serif;
-    scrollbar-width: thin;
-    scrollbar-color: #929292 #000000; 
-    scrollbar-arrow-color: #000000;
+    font-family: "Poppins", sans-serif; /* Fonte padrão do site */
+    scrollbar-width: thin; /* Largura fina da barra de rolagem */
+    scrollbar-color: #929292 #000000; /* Cores da barra de rolagem */
+    scrollbar-arrow-color: #000000; /* Cor das setas da barra de rolagem */
 }
-
 body {
     background-color: black !important;
 }
 
-.h1-custom {
-    background: linear-gradient(to right, #ffffff, #ffffff);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .color-custom {
-    color: #ffffff !important;
+    color: #ffffff !important; /* Cor do texto forçada para branco */
 }
 
+/* Estilo para cartões com classe .card-color */
 .card-color {
-    background-color: #523961;
+    background-color: #523961; /* Cor de fundo dos cartões */
 }
 
+/* Estilo para o contêiner de habilidades */
 .habilidades-content {
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    margin: 0 auto;
+    max-width: 1200px; /* Largura máxima do contêiner */
+    display: flex; /* Flexbox para layout */
+    flex-direction: column; /* Layout em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: space-between; /* Espaço entre os itens */
+    gap: 30px; /* Espaço entre os itens */
+    margin: 0 auto; /* Centraliza o contêiner horizontalmente */
 }
 
+/* Estilo para o contêiner de caixas de habilidades */
 .habilidades-box {
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    width: 100vw;
-    padding: 0px;
-    max-width: 600px;
-    overflow: hidden;
+    margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+    display: flex; /* Flexbox para layout */
+    flex-wrap: nowrap; /* Impede a quebra de linha */
+    gap: 20px; /* Espaço entre as caixas */
+    width: 100vw; /* Largura total da viewport */
+    padding: 0; /* Remove o padding */
+    max-width: 600px; /* Largura máxima do contêiner */
+    overflow: hidden; /* Oculta o conteúdo que ultrapassa o contêiner */
 }
 
+/* Animação de carrossel para as caixas de habilidades */
 @keyframes carrosel {
     0% {
-        transform: translateX(0%);
+        transform: translateX(0%); /* Posição inicial */
     }
-
     100% {
-        transform: translateX(-810%);
+        transform: translateX(-100%); /* Desloca para a esquerda */
     }
 }
 
+/* Estilo para as caixas de habilidades */
 .habilidades-caixa {
-    background: rgba(255, 255, 255, 0.19);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1.5px solid rgba(255, 255, 255, 0.3);
-    transition: 0.3s;
-    cursor: pointer;
-    width: 130px;
-    min-width: 130px;
-    animation: carrosel 8s linear infinite;
+    background: rgba(255, 255, 255, 0.19); /* Cor de fundo com transparência */
+    border-radius: 16px; /* Bordas arredondadas */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra da caixa */
+    backdrop-filter: blur(5px); /* Desfoque do fundo */
+    -webkit-backdrop-filter: blur(5px); /* Compatibilidade com Webkit */
+    border: 1.5px solid rgba(255, 255, 255, 0.3); /* Borda com transparência */
+    transition: 0.3s; /* Transição suave para alterações */
+    cursor: pointer; /* Cursor de ponteiro ao passar sobre a caixa */
+    width: 130px; /* Largura das caixas */
+    min-width: 130px; /* Largura mínima das caixas */
+    animation: carrosel 8s linear infinite; /* Animação contínua */
 }
 
+/* Estilo para imagens dentro das caixas de habilidades */
 .habilidades-caixa > img {
-    width: 100%;
-    padding: 15px;
+    width: 100%; /* Largura total da caixa */
+    padding: 15px; /* Espaçamento interno */
 }
 
+/* Estilo para caixas de habilidades ao passar o mouse */
 .habilidades-caixa:hover {
-    transform: scale(1.03) translateY(-3px);
-    box-shadow: 0px 0px 6px #0a66c29e;
+    transform: scale(1.03) translateY(-3px); /* Efeito de zoom e deslocamento */
+    box-shadow: 0px 0px 6px #0a66c29e; /* Sombra ao passar o mouse */
 }
 
+/* Estilo para títulos dentro das caixas de habilidades */
 .habilidades-caixa > h3 {
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    padding: 5px;
-    font-size: 20px;
-    box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.239);
+    color: white; /* Cor do texto */
+    font-family: 'Roboto', sans-serif; /* Fonte do texto */
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 5px; /* Espaçamento interno */
+    font-size: 20px; /* Tamanho da fonte */
+    box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.239); /* Sombra do texto */
 }
 
+/* Estilo para cartões com a classe .background-custom */
 .background-custom {
-    --bs-card-bg: rgba(255, 255, 255, 0.1) !important;     
-    border: 1px solid rgba(255, 255, 255, 0.678) !important; 
-    backdrop-filter: blur(3px) !important; 
-    -webkit-backdrop-filter: blur(0px) !important; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-    border-radius: 15px !important;
-  }@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    --bs-card-bg: rgba(255, 255, 255, 0.1) !important; /* Cor de fundo dos cartões */
+    border: 1px solid rgba(255, 255, 255, 0.678) !important; /* Borda dos cartões */
+    backdrop-filter: blur(3px) !important; /* Desfoque do fundo */
+    -webkit-backdrop-filter: blur(0px) !important; /* Compatibilidade com Webkit */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Sombra dos cartões */
+    border-radius: 15px !important; /* Bordas arredondadas */
+}
 
-  * {
-      margin: 0;
-      padding: 0;
-      text-decoration: none;
-      font-family: "Poppins", sans-serif;
-      scrollbar-width: thin;
-      scrollbar-color: #929292 #000000; 
-      scrollbar-arrow-color: #000000;
-  }
-  
-  body {
-      background-color: #3b234a;
-  }
-  
-  .h1-custom {
-      background: linear-gradient(to right, #ffffff, #ffffff);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-  }
-  
-  .color-custom {
-      color: #ffffff !important;
-  }
-  
-  .card-color {
-      background-color: #523961;
-  }
-  
-  /*animacao*/
-  [data-anima] {
-      opacity: 0;
-      transition: 1s;
-  }
-  
-  [data-anima="down"] {
-      transform: translate3d(0, -50px, 0);
-  }
-  
-  [data-anima="up"] {
-      transform: translate3d(0, 50px, 0);
-  }
-  
-  [data-anima="left"] {
-      transform: translate3d(-30px, 0, 0);
-  }
-  
-  [data-anima="right"] {
-      transform: translate3d(30px, 0, 0);
-  }
-  
-  [data-anima].animate {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-  }
-  
-  .habilidades-content {
-      max-width: 1200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-      margin: 0 auto;
-  }
-  
-  .habilidades-box {
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 20px;
-      width: 100vw;
-      padding: 0px;
-      max-width: 600px;
-      overflow: hidden;
-  }
-  
-  @keyframes carrosel {
-      0% {
-          transform: translateX(0%);
-      }
-  
-      100% {
-          transform: translateX(-810%);
-      }
-  }
-  
-  .habilidades-caixa {
-      background: rgba(255, 255, 255, 0.19);
-      border-radius: 16px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      border: 1.5px solid rgba(255, 255, 255, 0.3);
-      transition: 0.3s;
-      cursor: pointer;
-      width: 130px;
-      min-width: 130px;
-      animation: carrosel 8s linear infinite;
-  }
-  
-  .habilidades-caixa > img {
-      width: 100%;
-      padding: 15px;
-  }
-  
-  .habilidades-caixa:hover {
-      transform: scale(1.03) translateY(-3px);
-      box-shadow: 0px 0px 6px #0a66c29e;
-  }
-  
-  .habilidades-caixa > h3 {
-      color: white;
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-      padding: 5px;
-      font-size: 20px;
-      box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.239);
-  }
-  
-  .background-custom {
-      --bs-card-bg: rgba(255, 255, 255, 0.1) !important;     
-      border: 1px solid rgba(255, 255, 255, 0.678) !important; 
-      backdrop-filter: blur(3px) !important; 
-      -webkit-backdrop-filter: blur(0px) !important; 
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-      border-radius: 15px !important;
-    }
-  
-  [data-anima] {
-      opacity: 0;
-      transition: 1s;
-  }
-  
-  [data-anima="down"] {
-      transform: translate3d(0, -50px, 0);
-  }
-  
-  [data-anima="up"] {
-      transform: translate3d(0, 50px, 0);
-  }
-  
-  [data-anima="left"] {
-      transform: translate3d(-30px, 0, 0);
-  }
-  
-  [data-anima="right"] {
-      transform: translate3d(30px, 0, 0);
-  }
-  
-  [data-anima].animate {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-  }
+/* Regras de animação para elementos com atributo data-anima */
+[data-anima] {
+    opacity: 0; /* Inicialmente invisível */
+    transition: 1s; /* Transição suave */
+}
+
+/* Animações específicas */
+[data-anima="down"] {
+    transform: translate3d(0, -50px, 0); /* Desloca para cima */
+}
+
+[data-anima="up"] {
+    transform: translate3d(0, 50px, 0); /* Desloca para baixo */
+}
+
+[data-anima="left"] {
+    transform: translate3d(-30px, 0, 0); /* Desloca para a esquerda */
+}
+
+[data-anima="right"] {
+    transform: translate3d(30px, 0, 0); /* Desloca para a direita */
+}
+
+/* Estado animado dos elementos */
+[data-anima].animate {
+    opacity: 1; /* Visível */
+    transform: translate3d(0, 0, 0); /* Posição original */
+}
