@@ -1,6 +1,5 @@
 AOS.init();
 
-
 document.addEventListener("DOMContentLoaded", main)
 
 function main() {
