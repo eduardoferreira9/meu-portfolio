@@ -10,18 +10,15 @@
     scrollbar-width: thin; /* Largura fina da barra de rolagem */
     scrollbar-color: #929292 #000000; /* Cores da barra de rolagem */
     scrollbar-arrow-color: #000000; /* Cor das setas da barra de rolagem */
+    border: 1px solid red;
 }
+
 body {
     background-color: black !important;
 }
 
 .color-custom {
     color: #ffffff !important; /* Cor do texto forçada para branco */
-}
-
-/* Estilo para cartões com classe .card-color */
-.card-color {
-    background-color: #523961; /* Cor de fundo dos cartões */
 }
 
 /* Estilo para o contêiner de habilidades */
