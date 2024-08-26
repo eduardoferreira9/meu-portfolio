@@ -75,5 +75,44 @@ function main() {
         });
     }
 }
+const typingSpeed = 120; // Speed of typing
+const erasingSpeed = 90; // Speed of erasing
+const pauseDuration = 1000; // Pause duration after each word
 
+const texts = ["Eduardo", "Web Developer."];
+let currentTextIndex = 0;
+let currentCharIndex = 0;
+let isTyping = true;
 
+function typeEffect() {
+    const element = document.getElementById('digitando');
+    const currentText = texts[currentTextIndex];
+
+    if (isTyping) {
+        element.textContent += currentText.charAt(currentCharIndex);
+        currentCharIndex++;
+
+        if (currentCharIndex > currentText.length) {
+            isTyping = false;
+            setTimeout(typeEffect, pauseDuration);
+            return;
+        }
+    } else {
+        element.textContent = currentText.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+
+        if (currentCharIndex <= 0) {
+            isTyping = true;
+            currentTextIndex = (currentTextIndex + 1) % texts.length;
+            setTimeout(typeEffect, pauseDuration);
+            return;
+        }
+    }
+
+    setTimeout(typeEffect, isTyping ? typingSpeed : erasingSpeed);
+}
+
+// Start typing effect when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    typeEffect();
+});

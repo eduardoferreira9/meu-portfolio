@@ -125,3 +125,15 @@ body {
     opacity: 1; /* Visível */
     transform: translate3d(0, 0, 0); /* Posição original */
 }
+
+#digitando {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #fff; }
+}
