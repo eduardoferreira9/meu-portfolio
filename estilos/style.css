@@ -10,7 +10,6 @@
     scrollbar-width: thin; /* Largura fina da barra de rolagem */
     scrollbar-color: #929292 #000000; /* Cores da barra de rolagem */
     scrollbar-arrow-color: #000000; /* Cor das setas da barra de rolagem */
-    border: 1px solid red;
 }
 
 body {
